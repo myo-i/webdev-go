@@ -4,3 +4,6 @@
 
 ## go doc template（indexに関数が載ってるから読んでおく）
 https://pkg.go.dev/html/template#pkg-index
+
+## ExecuteTemplateでスライスなどを用いて複数のデータをtemplateに渡す場合
+https://tech-up.hatenablog.com/entry/2018/12/19/130359
