@@ -10,3 +10,6 @@ https://tech-up.hatenablog.com/entry/2018/12/19/130359
 
 ## ネットワーク参考記事
 https://zenn.dev/hsaki/books/golang-io-package/viewer/netconn
+
+## ネットワーク・TCP/IP・HTTPの基本参考記事（HTTPの形式なども）
+https://qiita.com/ryosuketter/items/ba54d595a31f4ad0a58f
