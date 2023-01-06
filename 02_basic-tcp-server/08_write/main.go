@@ -1,14 +1,13 @@
 package main
 
-// サーバーを立てたら localhost:8080やlocalhosst:8080/Golang-developmentなどを打っみると
-// GET / や GET /Golang-development がコンソールに表示される
-
 import (
 	"bufio"
 	"fmt"
 	"log"
 	"net"
 )
+
+var writeDatas []string
 
 func main() {
 	listen, err := net.Listen("tcp", ":8080")
@@ -23,20 +22,27 @@ func main() {
 			log.Println(err)
 			continue
 		}
-		go handle(conn)
+		handle(conn)
+		for _, data := range writeDatas {
+			fmt.Println(data)
+			byteData := []byte(data)
+			_, err := conn.Write(byteData)
+			if err != nil {
+				log.Fatalln(err)
+			}
+		}
+
 	}
+
 }
 
 func handle(conn net.Conn) {
 	scanner := bufio.NewScanner(conn)
 	for scanner.Scan() {
 		ln := scanner.Text()
-		fmt.Println(ln)
+		writeDatas = append(writeDatas, ln)
 	}
 	defer conn.Close()
 
-	// 基本的にはここには辿り着かない
-	// ストリーム接続が開かれている
-	// 上記のリーダーはどうやって完了を知るのか？
 	fmt.Println("Code got here.")
 }
