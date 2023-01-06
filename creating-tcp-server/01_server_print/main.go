@@ -1,5 +1,7 @@
 package main
 
+// サーバーを立てたら telnet localhost 8080 をうってみる
+
 import (
 	"fmt"
 	"io"
