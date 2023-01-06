@@ -10,11 +10,13 @@ import (
 )
 
 func main() {
+	// コネクションを得る
 	conn, err := net.Dial("tcp", "localhost:8080")
 	if err != nil {
 		log.Fatalln(err)
 	}
 	defer conn.Close()
 
+	// コネクションを得てエラーが発生しなかったら、下記を実行しdefer
 	fmt.Fprintln(conn, "Dialed")
 }
